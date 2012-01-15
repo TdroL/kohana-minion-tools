@@ -37,8 +37,15 @@ class Minion_Task_View extends Minion_Task {
 		{
 			$class_path = preg_replace('/\/[^\/]+$/i', '', $name);
 
-			mkdir(APPPATH.'classes/view/'.$class_path, 0777, true);
-			mkdir(APPPATH.'templates/'.$class_path, 0777, true);
+			if ( ! is_dir(APPPATH.'classes/view/'.$class_path))
+			{
+				mkdir(APPPATH.'classes/view/'.$class_path, 0644, TRUE);
+			}
+
+			if ( ! is_dir(APPPATH.'templates/'.$class_path))
+			{
+				mkdir(APPPATH.'templates/'.$class_path, 0644, TRUE);
+			}
 		}
 
 		file_put_contents(APPPATH.'classes/view/'.$name.'.php', $view_class);

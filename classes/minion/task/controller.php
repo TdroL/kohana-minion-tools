@@ -39,7 +39,10 @@ class Minion_Task_Controller extends Minion_Task {
 		{
 			$class_path = preg_replace('/\/[^\/]+$/i', '', $name);
 
-			mkdir(APPPATH.'classes/controller/'.$class_path, 0777, true);
+			if ( ! is_dir(APPPATH.'templates/'.$class_path))
+			{
+				mkdir(APPPATH.'templates/'.$class_path, 0644, TRUE);
+			}
 		}
 
 		file_put_contents(APPPATH.'classes/controller/'.$name.'.php', $controller_class);

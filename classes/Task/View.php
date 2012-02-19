@@ -147,9 +147,9 @@ class Task_View extends Minion_Task {
 			'file_security' => Kohana::FILE_SECURITY,
 		));
 
-		$controller_path_uc = str_replace('_ ','_', ucwords(str_replace('_','_ ',$controller_path)));
+		$controller_path_uc = str_replace(' ','_', ucwords(str_replace('_',' ',$controller_path)));
 
-		$view_uc = str_replace('_ ','_', ucwords(str_replace('_','_ ',$view)));
+		$view_uc = str_replace(' ','_', ucwords(str_replace('_',' ',$view)));
 
 		if (strpos($view, '/') !== FALSE)
 		{

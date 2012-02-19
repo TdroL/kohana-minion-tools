@@ -71,7 +71,7 @@ class Task_Controller extends Minion_Task {
 			}
 		}
 
-		$name_uc = str_replace('_ ','_', ucwords(str_replace('_','_ ',$name)));
+		$name_uc = str_replace(' ','_', ucwords(str_replace('_',' ',$name)));
 		file_put_contents(APPPATH.'classes/Controller/'.$name_uc.'.php', $controller_class);
 
 		echo 'Done.';

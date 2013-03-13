@@ -23,9 +23,9 @@ class Controller_<?php echo $class_name ?> extends Controller_Base {
 		$this->view->model = new Model_<?php echo $model_name ?>;
 		$model = $this->view->model;
 
-		$location = Route::get('default')->uri(array(
+		$location = Route::get('default')->uri([
 			'controller' => '<?php echo $short_class_name ?>'
-		));
+		]);
 
 		if ($this->valid_post())
 		{
@@ -38,10 +38,10 @@ class Controller_<?php echo $class_name ?> extends Controller_Base {
 
 				if ($this->request->is_initial())
 				{
-					$this->session->set('flash', array(
+					$this->session->set('flash', [
 						'type' => 'success',
 						'message' => $message
-					));
+					]);
 					HTTP::redirect(302, $location);
 				}
 
@@ -61,9 +61,9 @@ class Controller_<?php echo $class_name ?> extends Controller_Base {
 		$this->view->model = new Model_<?php echo $model_name ?>($this->request->param('id'));
 		$model = $this->view->model;
 
-		$location = Route::get('default')->uri(array(
+		$location = Route::get('default')->uri([
 			'controller' => '<?php echo $short_class_name ?>'
-		));
+		]);
 
 		if ( ! $model->loaded())
 		{
@@ -71,18 +71,18 @@ class Controller_<?php echo $class_name ?> extends Controller_Base {
 
 			if ($this->request->is_initial())
 			{
-				$this->session->set('flash', array(
+				$this->session->set('flash', [
 					'type' => 'error',
 					'message' => $message
-				));
+				]);
 				HTTP::redirect(302, $location);
 			}
 			else
 			{
 				$this->response->status(404);
-				$this->view->errors(array(
+				$this->view->errors([
 					'id' => $message
-				));
+				]);
 				return;
 			}
 		}
@@ -98,10 +98,10 @@ class Controller_<?php echo $class_name ?> extends Controller_Base {
 
 				if ($this->request->is_initial())
 				{
-					$this->session->set('flash', array(
+					$this->session->set('flash', [
 						'type' => 'success',
 						'message' => $message
-					));
+					]);
 					HTTP::redirect(302, $location);
 				}
 
@@ -121,9 +121,9 @@ class Controller_<?php echo $class_name ?> extends Controller_Base {
 		$this->view->model = new Model_<?php echo $model_name ?>($this->request->param('id'));
 		$model = $this->view->model;
 
-		$location = Route::get('default')->uri(array(
+		$location = Route::get('default')->uri([
 			'controller' => '<?php echo $short_class_name ?>'
-		));
+		]);
 
 		if ( ! $model->loaded())
 		{
@@ -131,18 +131,18 @@ class Controller_<?php echo $class_name ?> extends Controller_Base {
 
 			if ($this->request->is_initial())
 			{
-				$this->session->set('flash', array(
+				$this->session->set('flash', [
 					'type' => 'error',
 					'message' => $message
-				));
+				]);
 				HTTP::redirect(302, $location);
 			}
 			else
 			{
 				$this->response->status(404);
-				$this->view->errors(array(
+				$this->view->errors([
 					'id' => $message
-				));
+				]);
 				return;
 			}
 		}
@@ -157,10 +157,10 @@ class Controller_<?php echo $class_name ?> extends Controller_Base {
 
 				if ($this->request->is_initial())
 				{
-					$this->session->set('flash', array(
+					$this->session->set('flash', [
 						'type' => 'success',
 						'message' => $message
-					));
+					]);
 					HTTP::redirect(302, $location);
 				}
 

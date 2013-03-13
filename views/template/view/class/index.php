@@ -1,7 +1,7 @@
 <?php echo $file_security ?>
 
 
-class View_<?php echo $class_name ?> extends View_<?php echo $layout ?> {
+class View_<?php echo $class_name ?> {
 
 	public function items()
 	{
@@ -10,16 +10,16 @@ class View_<?php echo $class_name ?> extends View_<?php echo $layout ?> {
 		foreach ($items as & $item)
 		{
 			$item['urls'] = array(
-				'update' => Route::url('default', array(
+				'update' => Route::url('default', [
 					'controller' => '<?php echo $controller_name ?>',
 					'action'     => 'update',
 					'id'         => $item['id']
-				)),
-				'delete' => Route::url('default', array(
+				]),
+				'delete' => Route::url('default', [
 					'controller' => '<?php echo $controller_name ?>',
 					'action'     => 'delete',
 					'id'         => $item['id']
-				))
+				])
 			);
 		}
 
@@ -29,10 +29,10 @@ class View_<?php echo $class_name ?> extends View_<?php echo $layout ?> {
 	public function url()
 	{
 		return parent::url() + array(
-			'create' => Route::url('default', array(
+			'create' => Route::url('default', [
 				'controller' => '<?php echo $controller_name ?>',
 				'action' => 'create'
-			))
+			])
 		);
 	}
 

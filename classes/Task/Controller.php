@@ -2,10 +2,10 @@
 
 class Task_Controller extends Minion_Task {
 
-	protected $_defaults = array(
+	protected $_defaults = [
 		'name' => NULL,
 		'methods' => NULL
-	);
+	];
 
 	protected function _execute(array $params)
 	{
@@ -53,13 +53,13 @@ class Task_Controller extends Minion_Task {
 
 		$model_name = ucfirst($short_class_name);
 
-		$controller_class->set(array(
+		$controller_class->set([
 			'class_name' => $class_name,
 			'short_class_name' => $short_class_name,
 			'model_name' => $model_name,
 			'file_security' => Kohana::FILE_SECURITY,
 			'methods' => $methods,
-		));
+		]);
 
 		if (strpos($name, '/') !== FALSE)
 		{

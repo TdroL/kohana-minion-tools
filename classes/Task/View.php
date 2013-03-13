@@ -2,11 +2,11 @@
 
 class Task_View extends Minion_Task {
 
-	protected $_defaults = array(
+	protected $_defaults = [
 		'views' => NULL,
 		'standalone' => NULL,
 		'layout' => 'layout',
-	);
+	];
 
 	protected function _execute(array $config)
 	{
@@ -59,7 +59,7 @@ class Task_View extends Minion_Task {
 		}
 		else
 		{
-			$standalone = array();
+			$standalone = [];
 		}
 
 		// get layout
@@ -117,7 +117,7 @@ class Task_View extends Minion_Task {
 		$controller_path = preg_replace('/\/[^\/]+$/i', '', $view);
 		$model_name = ucfirst($controller_name);
 
-		$view_class->set(array(
+		$view_class->set([
 			'class_name' => $class_name,
 			'controller_name' => $controller_name,
 			'controller_path' => $controller_path,
@@ -125,9 +125,9 @@ class Task_View extends Minion_Task {
 			'layout' => $layout,
 			'standalone' => $standalone,
 			'file_security' => Kohana::FILE_SECURITY,
-		));
+		]);
 
-		$view_mustache->set(array(
+		$view_mustache->set([
 			'class_name' => $class_name,
 			'controller_name' => $controller_name,
 			'controller_path' => $controller_path,
@@ -135,9 +135,9 @@ class Task_View extends Minion_Task {
 			'layout' => $layout,
 			'standalone' => $standalone,
 			'file_security' => Kohana::FILE_SECURITY,
-		));
+		]);
 
-		$view_form_partial->set(array(
+		$view_form_partial->set([
 			'class_name' => $class_name,
 			'controller_name' => $controller_name,
 			'controller_path' => $controller_path,
@@ -145,7 +145,7 @@ class Task_View extends Minion_Task {
 			'layout' => $layout,
 			'standalone' => $standalone,
 			'file_security' => Kohana::FILE_SECURITY,
-		));
+		]);
 
 		$controller_path_uc = str_replace(' ','_', ucwords(str_replace('_',' ',$controller_path)));
 
